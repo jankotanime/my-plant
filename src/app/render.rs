@@ -1,9 +1,7 @@
-use crossterm::event::{read, Event, KeyCode};
 use std::io::{stdout, Write};
-use crossterm::{execute, terminal::{Clear, ClearType}, cursor::MoveTo};
+use crossterm::{execute, terminal::Clear, terminal::ClearType, cursor::MoveTo};
 
-fn clear_terminal() {
-  let mut stdout = stdout();
+fn clear_terminal(stdout: &mut impl Write) {
   execute!(
     stdout,
     Clear(ClearType::All),
@@ -11,7 +9,9 @@ fn clear_terminal() {
   ).unwrap();
 }
 
-pub fn render(p: char) {
-  clear_terminal();
-  print!("{}", p)
+pub fn render(print: &String) {
+  let mut stdout = stdout();
+  clear_terminal(&mut stdout);
+  write!(stdout, "{}", print).unwrap();
+  stdout.flush().unwrap();
 }
