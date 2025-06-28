@@ -2,17 +2,17 @@ use crate::app::enums::key::Key;
 use crate::app::graphic::{menu::*};
 use crate::app::menu::config::Config;
 
-pub fn menu_update(x: Key, print: &mut String, config: &mut Config) {
-  print.push_str(INTRO);
-  print.push('\n');
+pub fn menu_update(x: Key, print: &mut Vec<String>, config: &mut Config) {
+  print.push(INTRO.to_string());
   for i in 0..TO_CHOOSE_LEN {
+    let mut to_print = String::new();
     if i == config.vars.stage {
-      print.push_str(CHOOSE);
+      to_print.push_str(CHOOSE);
     } else {
-      print.push_str(NOT_CHOOSE);
+      to_print.push_str(NOT_CHOOSE);
     }
-    print.push_str(TO_CHOOSE[i as usize]);
-    print.push('\n');
+    to_print.push_str(TO_CHOOSE[i as usize]);
+    print.push(to_print);
   }
   match x {
     Key::DOWN if config.vars.stage == 1 => config.vars.stage = 0,

@@ -1,5 +1,5 @@
 use std::io::{stdout, Write};
-use crossterm::{execute, terminal::Clear, terminal::ClearType, cursor::MoveTo};
+use crossterm::{execute, terminal::{Clear, ClearType}, cursor::MoveTo};
 
 fn clear_terminal(stdout: &mut impl Write) {
   execute!(
@@ -9,10 +9,13 @@ fn clear_terminal(stdout: &mut impl Write) {
   ).unwrap();
 }
 
-pub fn render(print: &mut String) {
+pub fn render(print: &mut Vec<String>) {
   let mut stdout = stdout();
   clear_terminal(&mut stdout);
-  write!(stdout, "{}", print).unwrap();
+  for (i, line) in print.iter().enumerate() {
+    execute!(stdout, MoveTo(0, i as u16)).unwrap();
+    write!(stdout, "{}", line).unwrap();
+  }
   stdout.flush().unwrap();
-  *print = "".to_string();
+  *print = Vec::new();
 }
