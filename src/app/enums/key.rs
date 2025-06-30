@@ -4,4 +4,6 @@ pub enum Key {
   RIGHT,
   UP,
   DOWN,
+  SPACE,
+  ENTER
 }

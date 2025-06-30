@@ -9,6 +9,8 @@ use crate::app::render::render;
 pub fn run() {
   let mut global = Global::new();
   let mut config = Config::new();
+  menu_update(Key::Q, &mut global.print, &mut global.state, &mut config);
+  render(&mut global.print);
   loop {
     let e = event();
     match e {
@@ -16,7 +18,7 @@ pub fn run() {
       Some(Key::Q) => return,
       Some(x) => {
         match global.state {
-          AppState::MENU => menu_update(x, &mut global.print, &mut config),
+          AppState::MENU => if !menu_update(x, &mut global.print, &mut global.state, &mut config) {return},
           _ => continue,
         }
       }

@@ -20,6 +20,12 @@ pub fn event()-> Option<Key> {
       KeyCode::Down => {
         return Some(Key::DOWN);
       }
+      KeyCode::Char(' ') => {
+        return Some(Key::SPACE);
+      }
+      KeyCode::Enter => {
+        return Some(Key::ENTER);
+      }
       _ => {
         return None;
       }
