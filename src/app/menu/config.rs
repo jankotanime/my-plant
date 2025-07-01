@@ -10,14 +10,14 @@ impl Vars {
   }
 }
 
-pub struct Config {
+pub struct MenuConfig {
   pub vars: Vars,
 }
 
-impl Config {
+impl MenuConfig {
   pub fn new() -> Self {
-      Self {
-          vars: Vars::new(),
-      }
+    Self {
+      vars: Vars::new(),
+    }
   }
 }

@@ -1,7 +1,7 @@
 use crate::app::graphic::{menu::*};
-use crate::app::menu::config::Config;
+use crate::app::menu::config::MenuConfig;
 
-pub fn print(print: &mut Vec<String>, config: &mut Config) {
+pub fn print(print: &mut Vec<String>, config: &MenuConfig) {
   print.push(INTRO.to_string());
   for i in 0..TO_CHOOSE_LEN {
     let mut to_print = String::new();
