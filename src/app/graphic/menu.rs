@@ -1,6 +1,3 @@
-pub const INTRO: &'static str = "   > My plant <\n";
-pub const CHOOSE: &'static str = ">> ";
-pub const NOT_CHOOSE: &'static str = "   ";
 pub const RUN: &'static str = "Zobacz rośliny\n";
 pub const OPTIONS: &'static str = "Opcje\n";
 pub const LEAVE: &'static str = "Wyjdź\n";

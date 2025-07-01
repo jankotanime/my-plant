@@ -1,10 +1,11 @@
 use crate::app::enums::key::Key;
-use crate::app::event::event;
-use crate::app::global::{Global, AppConfig};
 use crate::app::menu::print::print  as menu_print;
-use crate::app::print::print;
-use crate::app::render::render;
-use crate::app::update::update;
+use crate::app::main::event::event;
+use crate::app::main::global::{Global, AppConfig};
+use crate::app::main::initialize::initialize;
+use crate::app::main::print::print;
+use crate::app::main::render::render;
+use crate::app::main::update::update;
 
 pub fn run() {
   let mut global = Global::new();
@@ -18,6 +19,13 @@ pub fn run() {
       None => continue,
       Some(Key::Q) => return,
       Some(key) => update(&mut global, key)
+    }
+    match global.init {
+      None => (),
+      Some(init) => {
+        initialize(init, &mut global.state, &mut global.config);
+        global.init = None
+      },
     }
     print(&mut global);
     render(&mut global.print);

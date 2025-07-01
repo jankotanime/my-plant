@@ -1,4 +1,4 @@
-use crate::app::graphic::{menu::*};
+use crate::app::graphic::{menu::*, main::*};
 use crate::app::menu::config::MenuConfig;
 
 pub fn print(print: &mut Vec<String>, config: &MenuConfig) {

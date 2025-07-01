@@ -7,6 +7,7 @@ pub struct Global {
   pub print: Vec<String>,
   pub config: AppConfig,
   pub app: bool,
+  pub init: Option<AppState>,
 }
 
 pub enum AppConfig {
@@ -21,6 +22,7 @@ impl Global {
       print: Vec::new(),
       config: AppConfig::Menu(Box::new(MenuConfig::new())),
       app: true,
+      init: None,
     }
   }
 }
