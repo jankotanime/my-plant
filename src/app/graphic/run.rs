@@ -22,6 +22,8 @@ pub const CHANGE_NAME: PositionPrint = PositionPrint { print: "Zmień nazwę", y
 pub const DELETE: PositionPrint = PositionPrint { print: "Usuń", y: 9 };
 pub const IMAGE: PositionPrint = PositionPrint { print: "Zmień obraz", y: 10 };
 
+pub const PLANT_INFO: [PositionPrint; 7] = [NAME, SPECIES, AGE, SEEDING_DATE, LAST_WATER, TIME_LEFT, WATER_AMOUNT];
+
 pub const PLANT_PANEL: [PositionPrint; 4] = [WATER, CHANGE_NAME, DELETE, IMAGE];
 pub const PLANT_PANEL_LEN:i8 = DOWN_PANEL.len() as i8;
 
