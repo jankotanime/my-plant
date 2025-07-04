@@ -1,7 +1,11 @@
 use std::io::{stdout, Write};
 use crossterm::{execute, terminal::{Clear, ClearType}, cursor::MoveTo};
+use std::process::Command;
 
 fn clear_terminal(stdout: &mut impl Write) {
+  Command::new("clear")
+    .status()
+    .unwrap();
   execute!(
     stdout,
     Clear(ClearType::All),

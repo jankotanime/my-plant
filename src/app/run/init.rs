@@ -43,4 +43,41 @@ pub fn init(config: &mut RunConfig) {
   };
 
   config.plants.push(q);
+
+  config.plants.push(Plant{
+    name: name.to_string(), 
+    species: spec.to_string(), 
+    age: age, 
+    seeding: sd, 
+    last_water: lw, 
+    time_to_dry: tl, 
+    water_amount: wa
+  });
+  config.plants.push(Plant{
+    name: name.to_string(), 
+    species: spec.to_string(), 
+    age: age, 
+    seeding: sd, 
+    last_water: lw, 
+    time_to_dry: tl, 
+    water_amount: wa
+  });
+  config.plants.push(Plant{
+    name: name.to_string(), 
+    species: spec.to_string(), 
+    age: age, 
+    seeding: sd, 
+    last_water: lw, 
+    time_to_dry: tl, 
+    water_amount: wa
+  });
+  config.plants.push(Plant{
+    name: name.to_string(), 
+    species: spec.to_string(), 
+    age: age, 
+    seeding: sd, 
+    last_water: lw, 
+    time_to_dry: tl, 
+    water_amount: wa
+  });
 }
