@@ -2,23 +2,13 @@ use crate::app::{enums::plant::Plant, graphic::{main::*, run::*}, run::config::R
 
 fn print_line<F: Fn(&Plant) -> String>(print: &mut Vec<String>, plants: &Vec<Plant>, x: &i8, line: &PositionPrint, f: F) {
   let mut to_print:String = String::new();
-  let last_plant;
-  if plants.len() <= 4 {
-    last_plant = plants.len() - 1;
-  } else {
-    last_plant = (*x + 4) as usize;
-  }
   for (i, plant) in plants.iter().enumerate() {
     if 0 <= (i as i8 - x) && (i as i8 - x) <= 2 {
       let spaces_amount:usize = LINE_LEN as usize - (f(plant).chars().count() + line.print.chars().count());
       to_print.push_str(line.print);
       to_print.push_str(f(plant).as_str());
       to_print.push_str(" ".repeat(spaces_amount).as_str());
-      if i == last_plant {
-        to_print.push_str("\n");
-      } else {
-        to_print.push_str(" | ")
-      }
+      to_print.push_str(" | ")
     }
   }
   print.push(to_print);
@@ -26,12 +16,6 @@ fn print_line<F: Fn(&Plant) -> String>(print: &mut Vec<String>, plants: &Vec<Pla
 
 fn print_plant_panel(print: &mut Vec<String>, plants: &Vec<Plant>, x: &i8, y: &i8, line_number: i8, line: &PositionPrint) {
   let mut to_print:String = String::new();
-  let last_plant;
-  if plants.len() <= 4 {
-    last_plant = plants.len() - 1;
-  } else {
-    last_plant = (*x + 4) as usize;
-  }
   for i in 0..plants.len() {
     if 0 <= (i as i8 - x) && (i as i8 - x) <= 2 {
       let spaces_amount:usize = LINE_LEN as usize - (line.print.chars().count() + LINE_STARTER_LEN as usize);
@@ -42,11 +26,7 @@ fn print_plant_panel(print: &mut Vec<String>, plants: &Vec<Plant>, x: &i8, y: &i
       }
       to_print.push_str(line.print);
       to_print.push_str(" ".repeat(spaces_amount).as_str());
-      if i == last_plant {
-        to_print.push_str("\n");
-      } else {
-        to_print.push_str(" | ")
-      }
+      to_print.push_str(" | ")
     }
   }
   print.push(to_print);
@@ -61,6 +41,7 @@ pub fn print(print: &mut Vec<String>, config: &RunConfig) {
   print_line(print, &config.plants, &config.user_position.x, &LAST_WATER, |p| p.last_water.to_string().clone());
   print_line(print, &config.plants, &config.user_position.x, &TIME_LEFT, |p| (p.time_to_dry.to_string()+" dni").clone());
   print_line(print, &config.plants, &config.user_position.x, &WATER_AMOUNT, |p| (p.water_amount.to_string()+" L").clone());
+  print_line(print, &config.plants, &config.user_position.x, &IS_ALIVE, |p| (p.alive.to_string()).clone());
 
   for (i, line) in PLANT_PANEL.iter().enumerate() {
     print_plant_panel(print, &config.plants, &config.user_position.x, &config.user_position.y, i as i8, line);

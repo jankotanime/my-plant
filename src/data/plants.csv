@@ -1,2 +1,4 @@
-Name;Species;Alive;Seeding;Water;Last_watering;
-Test;Test;true;03-07-2025;5;03-07-2025;
+name,species,seeding,water,last_watering,alive
+Test1,Test1,2025-7-3,5,2025-7-3,true
+Test2,Test1,2025-1-3,5,2025-2-3,true
+Tes3,Test2,2025-6-3,5,2025-6-3,true
