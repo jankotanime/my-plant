@@ -1,4 +1,4 @@
-use crate::app::{enums::plant::Plant, graphic::{main::*, run::*}, run::config::RunConfig};
+use crate::app::{structs::plant::Plant, graphic::{main::*, run::*}, run::config::RunConfig};
 
 fn print_line<F: Fn(&Plant) -> String>(print: &mut Vec<String>, plants: &Vec<Plant>, x: &i8, line: &PositionPrint, f: F) {
   let mut to_print:String = String::new();

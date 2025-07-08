@@ -29,4 +29,4 @@ pub const PLANT_PANEL: [PositionPrint; 4] = [WATER, CHANGE_NAME, CHANGE_SPECIES,
 pub const PLANT_PANEL_LEN:i8 = DOWN_PANEL.len() as i8;
 
 pub const FIRST_TO_CHOOSE:i8 = 6;
-pub const LAST_TO_CHOOSE:i8 = 13;
+pub const LAST_TO_CHOOSE:i8 = 12;

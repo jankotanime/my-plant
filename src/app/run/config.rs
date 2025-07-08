@@ -1,4 +1,4 @@
-use crate::app::{enums::{plant::Plant, point::Point}, graphic::run::FIRST_TO_CHOOSE, run::state::State};
+use crate::app::{structs::{plant::Plant, point::Point}, graphic::run::FIRST_TO_CHOOSE, run::state::State};
 
 pub struct RunConfig {
   pub user_position: Point,

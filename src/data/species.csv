@@ -1,2 +1,3 @@
-Name,Max_time_without_water,Max_water,Consumption_speed,
-Test,10,10,1,
+name,max_time_without_water,max_water,consumption_speed
+Test1,10,10,1
+Test2,10,10,1
